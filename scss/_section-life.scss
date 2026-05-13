@@ -1,0 +1,200 @@
+@use "variables" as *;
+
+.life {
+  padding: 48px 0 84px;
+  background: #070a0f;
+  color: $color-white;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  &__feature {
+    min-height: 460px;
+    border: 1px solid rgba($color-white, 0.11);
+    border-radius: $radius-md;
+    background:
+      linear-gradient(90deg, rgba(7, 10, 15, 0.9) 0%, rgba(7, 10, 15, 0.74) 34%, rgba(7, 10, 15, 0.24) 72%),
+      linear-gradient(180deg, rgba(7, 10, 15, 0.08) 0%, rgba(7, 10, 15, 0.42) 100%),
+      url("../img/section_life/sorasak-_UIN-pFfJ7c-unsplash.jpg") center / cover no-repeat;
+    box-shadow: 0 24px 64px rgba($color-ink, 0.32);
+    overflow: hidden;
+  }
+
+  &__feature-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 460px;
+    min-height: 460px;
+    padding: 64px 0 64px 48px;
+    margin-left: 0;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 20px;
+    color: #f20d18;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin-bottom: 28px;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  &__text {
+    margin-bottom: 34px;
+    color: rgba($color-white, 0.82);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.75;
+  }
+
+  &__button,
+  &__cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 58px;
+    padding: 17px 34px;
+    border-radius: $radius-sm;
+    background: #f20d18;
+    color: $color-white;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 16px 34px rgba(242, 13, 24, 0.3);
+    transition:
+      background-color $transition,
+      transform $transition,
+      box-shadow $transition;
+
+    &:hover {
+      background: #d90812;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(242, 13, 24, 0.4);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-white, 0.42);
+      outline-offset: 4px;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    min-height: 220px;
+    padding: 34px 40px 40px;
+    border: 1px solid rgba($color-white, 0.09);
+    border-radius: $radius-md;
+    background:
+      linear-gradient(90deg, rgba(7, 10, 15, 0.5) 0%, rgba(7, 10, 15, 0.7) 48%, rgba(7, 10, 15, 0.72) 100%),
+      url("../img/section_life/crystal-kay-7viWpO0fNss-unsplash.jpg") center / cover no-repeat;
+    text-align: center;
+    box-shadow: 0 22px 56px rgba($color-ink, 0.28);
+    overflow: hidden;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 68%;
+      content: "";
+      background: rgba(7, 10, 15, 0.16);
+      backdrop-filter: blur(1px);
+      -webkit-mask-image: linear-gradient(45deg, transparent 0%, $color-ink 56%, $color-ink 100%);
+      mask-image: linear-gradient(45deg, transparent 0%, $color-ink 56%, $color-ink 100%);
+      pointer-events: none;
+    }
+  }
+
+  &__cta-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+    font-size: clamp(30px, 3.6vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  &__cta-text {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto 26px;
+    max-width: 720px;
+    color: rgba($color-white, 0.74);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  &__cta-button {
+    position: relative;
+    z-index: 1;
+    min-width: 220px;
+    min-height: 56px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__feature {
+      min-height: 420px;
+      background:
+        linear-gradient(90deg, rgba(7, 10, 15, 0.86) 0%, rgba(7, 10, 15, 0.68) 54%, rgba(7, 10, 15, 0.36) 100%),
+        linear-gradient(180deg, rgba(7, 10, 15, 0.08) 0%, rgba(7, 10, 15, 0.48) 100%),
+        url("../img/section_life/sorasak-_UIN-pFfJ7c-unsplash.jpg") center / cover no-repeat;
+    }
+
+    &__feature-content {
+      min-height: 420px;
+      max-width: 520px;
+      padding: 52px 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 38px 0 66px;
+
+    &__container {
+      gap: 32px;
+    }
+
+    &__feature {
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(7, 10, 15, 0.86) 0%, rgba(7, 10, 15, 0.58) 52%, rgba(7, 10, 15, 0.84) 100%),
+        url("../img/section_life/sorasak-_UIN-pFfJ7c-unsplash.jpg") center / cover no-repeat;
+    }
+
+    &__feature-content {
+      min-height: 520px;
+      padding: 42px 24px;
+    }
+
+    &__text {
+      font-size: 15px;
+    }
+
+    &__cta {
+      padding: 34px 24px;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    &__button,
+    &__cta-button {
+      width: 100%;
+    }
+  }
+}

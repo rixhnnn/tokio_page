@@ -1,0 +1,246 @@
+@use "variables" as *;
+
+.footer {
+  padding: 54px 0 60px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba($color-primary, 0.08), transparent 26rem),
+    linear-gradient(180deg, #070a0f 0%, #080c12 100%);
+  color: $color-white;
+  border-top: 1px solid rgba($color-white, 0.08);
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.1fr) minmax(120px, 0.8fr) minmax(140px, 0.9fr) minmax(280px, 1.4fr);
+    gap: 54px;
+    align-items: start;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    color: $color-white;
+    font-family: $font-accent;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.82;
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 5px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__logo-mark {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e50914;
+    box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
+  }
+
+  &__logo-text {
+    display: inline-block;
+  }
+
+  &__copyright {
+    color: rgba($color-white, 0.58);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  &__title {
+    margin-bottom: 18px;
+    color: rgba($color-white, 0.92);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__link {
+    color: rgba($color-white, 0.52);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 4px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__text {
+    max-width: 310px;
+    margin-bottom: 18px;
+    color: rgba($color-white, 0.55);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 54px;
+    gap: 10px;
+    max-width: 360px;
+    margin-bottom: 26px;
+  }
+
+  &__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  &__input {
+    min-width: 0;
+    height: 50px;
+    padding: 0 18px;
+    border: 1px solid rgba($color-white, 0.12);
+    border-radius: $radius-sm;
+    background: rgba($color-white, 0.035);
+    color: $color-white;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    transition:
+      border-color $transition,
+      background-color $transition;
+
+    &::placeholder {
+      color: rgba($color-white, 0.42);
+    }
+
+    &:focus {
+      border-color: rgba($color-primary, 0.75);
+      background: rgba($color-white, 0.055);
+    }
+  }
+
+  &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border: 1px solid rgba($color-primary, 0.86);
+    border-radius: $radius-sm;
+    color: #ff3a42;
+    transition:
+      background-color $transition,
+      color $transition,
+      transform $transition;
+
+    &:hover {
+      background: rgba($color-primary, 0.14);
+      color: $color-white;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 4px;
+    }
+  }
+
+  &__submit-icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  &__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: rgba($color-white, 0.48);
+    transition:
+      color $transition,
+      transform $transition;
+
+    &:hover {
+      color: $color-white;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 4px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__social-icon {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    &__container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 42px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 44px 0 48px;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 34px;
+    }
+
+    &__logo {
+      margin-bottom: 22px;
+    }
+
+    &__form {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    &__form {
+      grid-template-columns: 1fr 50px;
+    }
+  }
+}

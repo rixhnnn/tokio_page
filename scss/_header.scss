@@ -1,0 +1,153 @@
+@use "variables" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  background: rgba(15, 18, 24, 0.92);
+  border-bottom: 1px solid rgba($color-white, 0.07);
+  box-shadow: 0 18px 45px rgba($color-ink, 0.28);
+  backdrop-filter: blur(16px);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 58px;
+    gap: 36px;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 8px;
+    color: $color-white;
+    font-family: $font-accent;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0;
+    transition: opacity $transition;
+
+    &:hover {
+      opacity: 0.82;
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 5px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__logo-mark {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e50914;
+    box-shadow: 0 0 18px rgba(229, 9, 20, 0.45);
+  }
+
+  &__logo-text {
+    display: inline-block;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 auto;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(28px, 5vw, 58px);
+  }
+
+  &__menu-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 58px;
+    color: rgba($color-white, 0.78);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      color $transition,
+      opacity $transition;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: -12px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    min-height: 34px;
+    padding: 9px 20px;
+    border-radius: 6px;
+    background: #f20d18;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px rgba(242, 13, 24, 0.28);
+    transition:
+      background-color $transition,
+      transform $transition,
+      box-shadow $transition;
+
+    &:hover {
+      background: #d90812;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(242, 13, 24, 0.34);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-white, 0.38);
+      outline-offset: 3px;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__container {
+      gap: 22px;
+    }
+
+    &__menu {
+      gap: 22px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__container {
+      justify-content: space-between;
+    }
+
+    &__nav {
+      display: none;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    &__button {
+      min-height: 32px;
+      padding-inline: 14px;
+      font-size: 12px;
+    }
+  }
+}

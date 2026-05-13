@@ -1,0 +1,70 @@
+@use "variables" as *;
+
+body {
+  font-family: $font-main;
+  color: $color-text;
+  background:
+    radial-gradient(circle at top left, rgba($color-primary, 0.12), transparent 28rem),
+    linear-gradient(135deg, $color-bg 0%, $color-surface 100%);
+  line-height: 1.5;
+}
+
+.page {
+  overflow: hidden;
+}
+
+.container {
+  width: min(100% - ($container-padding * 2), $container-width);
+  margin-inline: auto;
+}
+
+.section {
+  padding: 96px 0;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 64px 0;
+  }
+}
+
+.section-title {
+  font-family: $font-accent;
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: $color-ink;
+}
+
+.section-text {
+  max-width: 640px;
+  font-size: 18px;
+  color: $color-muted;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 16px;
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 24px;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: $color-white;
+  font-weight: 700;
+  transition:
+    background-color $transition,
+    transform $transition;
+
+  &:hover {
+    background: $color-primary-dark;
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba($color-accent, 0.5);
+    outline-offset: 3px;
+  }
+}
