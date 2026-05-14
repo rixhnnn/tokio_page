@@ -233,3 +233,227 @@
     }
   }
 }
+
+.streets-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.42s ease,
+    visibility 0.42s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    .streets-modal__dialog {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .streets-modal__media {
+      opacity: 1;
+      transform: translateX(0);
+      clip-path: inset(0 0 0 0);
+    }
+
+    .streets-modal__content {
+      opacity: 1;
+      transform: translateX(0);
+      clip-path: inset(0 0 0 0);
+    }
+
+    .streets-modal__name,
+    .streets-modal__title,
+    .streets-modal__description {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 7, 11, 0.78);
+    backdrop-filter: blur(10px);
+  }
+
+  &__dialog {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+    width: min(100%, 980px);
+    max-height: min(720px, calc(100vh - 80px));
+    overflow: hidden;
+    border: 1px solid rgba($color-white, 0.12);
+    border-radius: $radius-md;
+    background: #0b1018;
+    color: $color-white;
+    box-shadow: 0 34px 90px rgba($color-ink, 0.58);
+    opacity: 0;
+    transform: scaleX(0.92);
+    transform-origin: center;
+    transition:
+      opacity 0.36s ease,
+      transform 0.72s cubic-bezier(0.18, 1.05, 0.34, 1);
+  }
+
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 3;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba($color-white, 0.16);
+    border-radius: 50%;
+    background: rgba($color-ink, 0.48);
+    color: $color-white;
+    backdrop-filter: blur(8px);
+    transition:
+      background-color $transition,
+      border-color $transition,
+      transform $transition;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 19px;
+      left: 11px;
+      width: 18px;
+      height: 2px;
+      content: "";
+      background: currentColor;
+      border-radius: 2px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      border-color: rgba($color-primary, 0.72);
+      background: rgba($color-primary, 0.2);
+      transform: rotate(8deg);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 4px;
+    }
+  }
+
+  &__media,
+  &__content {
+    opacity: 0;
+    transition:
+      opacity 0.56s ease,
+      transform 0.88s cubic-bezier(0.18, 1.05, 0.34, 1),
+      clip-path 0.88s cubic-bezier(0.18, 1.05, 0.34, 1);
+  }
+
+  &__media {
+    min-height: 480px;
+    background: #111722;
+    transform: translateX(-46px);
+    clip-path: inset(0 100% 0 0);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px 58px;
+    transform: translateX(46px);
+    clip-path: inset(0 0 0 100%);
+  }
+
+  &__name,
+  &__title,
+  &__description {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.58s ease,
+      transform 0.68s ease;
+  }
+
+  &__name {
+    margin-bottom: 16px;
+    color: #f20d18;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    transition-delay: 0.28s;
+  }
+
+  &__title {
+    margin-bottom: 22px;
+    font-size: clamp(34px, 4vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: 0;
+    transition-delay: 0.42s;
+  }
+
+  &__description {
+    color: rgba($color-white, 0.74);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.75;
+    transition-delay: 0.56s;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 24px;
+
+    &__dialog {
+      grid-template-columns: 1fr;
+      overflow-y: auto;
+    }
+
+    &__media {
+      min-height: 300px;
+    }
+
+    &__content {
+      padding: 38px 34px;
+    }
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding: 14px;
+
+    &__dialog {
+      max-height: calc(100vh - 28px);
+    }
+
+    &__content {
+      padding: 32px 22px;
+    }
+  }
+}
+
+.is-modal-open {
+  overflow: hidden;
+}

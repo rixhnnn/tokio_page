@@ -663,6 +663,190 @@ body {
   }
 }
 
+.streets-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.42s ease, visibility 0.42s ease;
+}
+.streets-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.streets-modal.is-open .streets-modal__dialog {
+  opacity: 1;
+  transform: scaleX(1);
+}
+.streets-modal.is-open .streets-modal__media {
+  opacity: 1;
+  transform: translateX(0);
+  clip-path: inset(0 0 0 0);
+}
+.streets-modal.is-open .streets-modal__content {
+  opacity: 1;
+  transform: translateX(0);
+  clip-path: inset(0 0 0 0);
+}
+.streets-modal.is-open .streets-modal__name,
+.streets-modal.is-open .streets-modal__title,
+.streets-modal.is-open .streets-modal__description {
+  opacity: 1;
+  transform: translateY(0);
+}
+.streets-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 11, 0.78);
+  backdrop-filter: blur(10px);
+}
+.streets-modal__dialog {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+  width: min(100%, 980px);
+  max-height: min(720px, 100vh - 80px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: #0b1018;
+  color: #ffffff;
+  box-shadow: 0 34px 90px rgba(17, 17, 17, 0.58);
+  opacity: 0;
+  transform: scaleX(0.92);
+  transform-origin: center;
+  transition: opacity 0.36s ease, transform 0.72s cubic-bezier(0.18, 1.05, 0.34, 1);
+}
+.streets-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.48);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.streets-modal__close::before, .streets-modal__close::after {
+  position: absolute;
+  top: 19px;
+  left: 11px;
+  width: 18px;
+  height: 2px;
+  content: "";
+  background: currentColor;
+  border-radius: 2px;
+}
+.streets-modal__close::before {
+  transform: rotate(45deg);
+}
+.streets-modal__close::after {
+  transform: rotate(-45deg);
+}
+.streets-modal__close:hover {
+  border-color: rgba(185, 28, 28, 0.72);
+  background: rgba(185, 28, 28, 0.2);
+  transform: rotate(8deg);
+}
+.streets-modal__close:focus-visible {
+  outline: 3px solid rgba(185, 28, 28, 0.45);
+  outline-offset: 4px;
+}
+.streets-modal__media, .streets-modal__content {
+  opacity: 0;
+  transition: opacity 0.56s ease, transform 0.88s cubic-bezier(0.18, 1.05, 0.34, 1), clip-path 0.88s cubic-bezier(0.18, 1.05, 0.34, 1);
+}
+.streets-modal__media {
+  min-height: 480px;
+  background: #111722;
+  transform: translateX(-46px);
+  clip-path: inset(0 100% 0 0);
+}
+.streets-modal__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.streets-modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 58px;
+  transform: translateX(46px);
+  clip-path: inset(0 0 0 100%);
+}
+.streets-modal__name, .streets-modal__title, .streets-modal__description {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.58s ease, transform 0.68s ease;
+}
+.streets-modal__name {
+  margin-bottom: 16px;
+  color: #f20d18;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  transition-delay: 0.28s;
+}
+.streets-modal__title {
+  margin-bottom: 22px;
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: 0;
+  transition-delay: 0.42s;
+}
+.streets-modal__description {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.75;
+  transition-delay: 0.56s;
+}
+@media (max-width: 991px) {
+  .streets-modal {
+    padding: 24px;
+  }
+  .streets-modal__dialog {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .streets-modal__media {
+    min-height: 300px;
+  }
+  .streets-modal__content {
+    padding: 38px 34px;
+  }
+}
+@media (max-width: 575px) {
+  .streets-modal {
+    padding: 14px;
+  }
+  .streets-modal__dialog {
+    max-height: calc(100vh - 28px);
+  }
+  .streets-modal__content {
+    padding: 32px 22px;
+  }
+}
+
+.is-modal-open {
+  overflow: hidden;
+}
+
 .infrastructure {
   padding: 78px 0 92px;
   background: radial-gradient(circle at 6% 12%, rgba(185, 28, 28, 0.1), transparent 30rem), linear-gradient(180deg, #080c12 0%, #070a0f 100%);
