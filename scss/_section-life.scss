@@ -111,8 +111,7 @@
       bottom: 0;
       width: 68%;
       content: "";
-      background: rgba(7, 10, 15, 0.16);
-      backdrop-filter: blur(1px);
+      background: linear-gradient(45deg, transparent 0%, rgba(7, 10, 15, 0.24) 56%, rgba(7, 10, 15, 0.34) 100%);
       -webkit-mask-image: linear-gradient(45deg, transparent 0%, $color-ink 56%, $color-ink 100%);
       mask-image: linear-gradient(45deg, transparent 0%, $color-ink 56%, $color-ink 100%);
       pointer-events: none;

@@ -26,6 +26,13 @@ body {
   }
 }
 
+.infrastructure,
+.life,
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
+}
+
 .section-title {
   font-family: $font-accent;
   font-size: clamp(32px, 5vw, 64px);
