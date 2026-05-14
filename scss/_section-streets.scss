@@ -55,7 +55,9 @@
   &__card {
     position: relative;
     display: block;
+    height: 348px;
     min-height: 348px;
+    width: 100%;
     overflow: hidden;
     border: 1px solid rgba($color-white, 0.12);
     border-radius: $radius-md;
@@ -94,10 +96,12 @@
   }
 
   &__card-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    min-height: 348px;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.45s ease;
   }
 
@@ -218,11 +222,12 @@
     }
 
     &__card {
+      height: 320px;
       min-height: 320px;
     }
 
     &__card-img {
-      min-height: 320px;
+      height: 100%;
     }
   }
 
@@ -366,16 +371,91 @@
   }
 
   &__media {
+    position: relative;
+    height: 480px;
     min-height: 480px;
+    overflow: hidden;
     background: #111722;
     transform: translateX(-46px);
     clip-path: inset(0 100% 0 0);
   }
 
   &__img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+
+    &.is-loaded {
+      transform: translateX(0) scale(1);
+    }
+
+    &.is-sliding-next {
+      animation: streets-modal-slide-next 0.72s cubic-bezier(0.18, 1.05, 0.34, 1) both;
+    }
+
+    &.is-sliding-prev {
+      animation: streets-modal-slide-prev 0.72s cubic-bezier(0.18, 1.05, 0.34, 1) both;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba($color-white, 0.18);
+    border-radius: 50%;
+    background: rgba($color-ink, 0.5);
+    color: $color-white;
+    transform: translateY(-50%);
+    backdrop-filter: blur(8px);
+    transition:
+      background-color $transition,
+      border-color $transition,
+      transform $transition,
+      opacity $transition;
+
+    &::before {
+      position: absolute;
+      top: 16px;
+      left: 18px;
+      width: 14px;
+      height: 14px;
+      content: "";
+      border-top: 2px solid currentColor;
+      border-left: 2px solid currentColor;
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      border-color: rgba($color-primary, 0.76);
+      background: rgba($color-primary, 0.22);
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgba($color-primary, 0.45);
+      outline-offset: 4px;
+    }
+
+    &--prev {
+      left: 22px;
+    }
+
+    &--next {
+      right: 22px;
+
+      &::before {
+        left: 15px;
+        transform: rotate(135deg);
+      }
+    }
   }
 
   &__content {
@@ -433,6 +513,7 @@
     }
 
     &__media {
+      height: 300px;
       min-height: 300px;
     }
 
@@ -451,9 +532,53 @@
     &__content {
       padding: 32px 22px;
     }
+
+    &__arrow {
+      width: 42px;
+      height: 42px;
+
+      &::before {
+        top: 14px;
+        left: 16px;
+        width: 12px;
+        height: 12px;
+      }
+
+      &--prev {
+        left: 12px;
+      }
+
+      &--next {
+        right: 12px;
+
+        &::before {
+          left: 13px;
+        }
+      }
+    }
   }
 }
 
 .is-modal-open {
   overflow: hidden;
+}
+
+@keyframes streets-modal-slide-next {
+  0% {
+    transform: translateX(72px) scale(1.035);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes streets-modal-slide-prev {
+  0% {
+    transform: translateX(-72px) scale(1.035);
+  }
+
+  100% {
+    transform: translateX(0) scale(1);
+  }
 }

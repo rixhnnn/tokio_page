@@ -515,7 +515,9 @@ body {
 .streets__card {
   position: relative;
   display: block;
+  height: 348px;
   min-height: 348px;
+  width: 100%;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
@@ -545,10 +547,12 @@ body {
   outline-offset: 4px;
 }
 .streets__card-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 348px;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.45s ease;
 }
 .streets__card-content {
@@ -650,10 +654,11 @@ body {
     grid-template-columns: 1fr;
   }
   .streets__card {
+    height: 320px;
     min-height: 320px;
   }
   .streets__card-img {
-    min-height: 320px;
+    height: 100%;
   }
 }
 @media (max-width: 575px) {
@@ -769,15 +774,76 @@ body {
   transition: opacity 0.56s ease, transform 0.88s cubic-bezier(0.18, 1.05, 0.34, 1), clip-path 0.88s cubic-bezier(0.18, 1.05, 0.34, 1);
 }
 .streets-modal__media {
+  position: relative;
+  height: 480px;
   min-height: 480px;
+  overflow: hidden;
   background: #111722;
   transform: translateX(-46px);
   clip-path: inset(0 100% 0 0);
 }
 .streets-modal__img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+.streets-modal__img.is-loaded {
+  transform: translateX(0) scale(1);
+}
+.streets-modal__img.is-sliding-next {
+  animation: streets-modal-slide-next 0.72s cubic-bezier(0.18, 1.05, 0.34, 1) both;
+}
+.streets-modal__img.is-sliding-prev {
+  animation: streets-modal-slide-prev 0.72s cubic-bezier(0.18, 1.05, 0.34, 1) both;
+}
+.streets-modal__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.5);
+  color: #ffffff;
+  transform: translateY(-50%);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+.streets-modal__arrow::before {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  width: 14px;
+  height: 14px;
+  content: "";
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+.streets-modal__arrow:hover {
+  border-color: rgba(185, 28, 28, 0.76);
+  background: rgba(185, 28, 28, 0.22);
+  transform: translateY(-50%) scale(1.06);
+}
+.streets-modal__arrow:focus-visible {
+  outline: 3px solid rgba(185, 28, 28, 0.45);
+  outline-offset: 4px;
+}
+.streets-modal__arrow--prev {
+  left: 22px;
+}
+.streets-modal__arrow--next {
+  right: 22px;
+}
+.streets-modal__arrow--next::before {
+  left: 15px;
+  transform: rotate(135deg);
 }
 .streets-modal__content {
   display: flex;
@@ -825,6 +891,7 @@ body {
     overflow-y: auto;
   }
   .streets-modal__media {
+    height: 300px;
     min-height: 300px;
   }
   .streets-modal__content {
@@ -841,12 +908,47 @@ body {
   .streets-modal__content {
     padding: 32px 22px;
   }
+  .streets-modal__arrow {
+    width: 42px;
+    height: 42px;
+  }
+  .streets-modal__arrow::before {
+    top: 14px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+  }
+  .streets-modal__arrow--prev {
+    left: 12px;
+  }
+  .streets-modal__arrow--next {
+    right: 12px;
+  }
+  .streets-modal__arrow--next::before {
+    left: 13px;
+  }
 }
 
 .is-modal-open {
   overflow: hidden;
 }
 
+@keyframes streets-modal-slide-next {
+  0% {
+    transform: translateX(72px) scale(1.035);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
+@keyframes streets-modal-slide-prev {
+  0% {
+    transform: translateX(-72px) scale(1.035);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+  }
+}
 .infrastructure {
   padding: 78px 0 92px;
   background: radial-gradient(circle at 6% 12%, rgba(185, 28, 28, 0.1), transparent 30rem), linear-gradient(180deg, #080c12 0%, #070a0f 100%);
