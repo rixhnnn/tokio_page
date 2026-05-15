@@ -1,4 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const setupTelegramHeaderFix = () => {
+    const header = document.querySelector(".header");
+    const userAgent = navigator.userAgent || "";
+    const params = new URLSearchParams(window.location.search);
+    const isTelegramBrowser = /Telegram|Telegram-iOS|TelegramAndroid|TgWebView/i.test(userAgent)
+      || Boolean(window.Telegram && window.Telegram.WebApp)
+      || params.has("tgHeaderFix");
+
+    if (!header || !isTelegramBrowser) {
+      return;
+    }
+
+    document.documentElement.classList.add("is-telegram-webview");
+
+    let isTicking = false;
+
+    const syncHeaderPosition = () => {
+      isTicking = false;
+      const scrollTop = Math.max(window.scrollY || window.pageYOffset || 0, 0);
+      header.style.setProperty("--telegram-header-top", `${scrollTop}px`);
+    };
+
+    const requestSync = () => {
+      if (isTicking) {
+        return;
+      }
+
+      isTicking = true;
+      window.requestAnimationFrame(syncHeaderPosition);
+    };
+
+    syncHeaderPosition();
+    window.addEventListener("scroll", requestSync, { passive: true });
+    window.addEventListener("resize", requestSync);
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("scroll", requestSync, { passive: true });
+      window.visualViewport.addEventListener("resize", requestSync);
+    }
+  };
+
+  setupTelegramHeaderFix();
+
   const revealSections = document.querySelectorAll("[data-reveal-section]");
 
   revealSections.forEach((section) => {

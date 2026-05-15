@@ -381,6 +381,13 @@ body {
   }
 }
 
+.is-telegram-webview .header {
+  position: absolute;
+  top: var(--telegram-header-top, 0px);
+  transform: none;
+  will-change: top;
+}
+
 .welcome {
   position: relative;
   display: flex;
