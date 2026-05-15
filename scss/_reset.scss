@@ -11,13 +11,17 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-x: none;
 }
 
 img,

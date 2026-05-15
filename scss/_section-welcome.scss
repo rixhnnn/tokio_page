@@ -4,7 +4,7 @@
   position: relative;
   display: flex;
   min-height: 100vh;
-  padding-top: 58px;
+  padding-top: calc(58px + env(safe-area-inset-top, 0px));
   color: $color-white;
   background:
     linear-gradient(90deg, rgba($color-ink, 0.82) 0%, rgba($color-ink, 0.58) 34%, rgba($color-ink, 0.2) 68%),
@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(100vh - 58px);
+    min-height: calc(100vh - 58px - env(safe-area-inset-top, 0px));
     padding-top: 70px;
     padding-bottom: 42px;
   }
