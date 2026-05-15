@@ -282,9 +282,10 @@
 
   @media (max-width: $breakpoint-sm) {
     min-height: 720px;
+    padding-top: 0;
 
     &__container {
-      min-height: calc(720px - 58px);
+      min-height: 720px;
       padding-top: 54px;
     }
 
