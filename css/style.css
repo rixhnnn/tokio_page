@@ -80,7 +80,16 @@ body {
 }
 @media (max-width: 767px) {
   .page {
-    padding-top: calc(58px + env(safe-area-inset-top, 0px));
+    position: fixed;
+    top: calc(58px + env(safe-area-inset-top, 0px));
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 }
 
@@ -212,10 +221,18 @@ body {
   }
 }
 @media (max-width: 767px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
   .infrastructure,
   .footer {
     content-visibility: visible;
     contain-intrinsic-size: auto;
+  }
+  .is-modal-open .page {
+    overflow: hidden;
   }
   .reveal-item,
   .reveal-letters span {
