@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=Permanent+Marker&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <title>Tokyo</title>
 </head>
@@ -40,14 +40,20 @@
         </header>
 
         <main>
-            <section class="welcome">
+            <section class="welcome reveal-section reveal-section--welcome" data-reveal-section>
                 <div class="container welcome__container">
                     <div class="welcome__content">
                         <span class="welcome__eyebrow">
                             <span class="welcome__eyebrow-symbol">東</span>
                             <span class="welcome__eyebrow-symbol welcome__eyebrow-symbol--accent">京</span>
                         </span>
-                        <h1 class="welcome__title">TOKYO</h1>
+                        <h1 class="welcome__title" aria-label="TOKYO">
+                            <span class="welcome__title-letter" aria-hidden="true">T</span>
+                            <span class="welcome__title-letter" aria-hidden="true">O</span>
+                            <span class="welcome__title-letter" aria-hidden="true">K</span>
+                            <span class="welcome__title-letter" aria-hidden="true">Y</span>
+                            <span class="welcome__title-letter" aria-hidden="true">O</span>
+                        </h1>
                         <p class="welcome__subtitle">Город будущего с традициями</p>
                         <p class="welcome__text">
                             Откройте для себя Токио - динамичный мегаполис, где неоновые улицы встречаются с многовековой культурой.
@@ -75,35 +81,43 @@
                 </div>
             </section>
 
-            <section class="streets" id="districts">
+            <section class="streets reveal-section" id="districts" data-reveal-section>
                 <div class="container streets__container">
-                    <div class="streets__head">
+                    <div class="streets__head reveal-item">
                         <span class="streets__eyebrow">Популярные районы</span>
-                        <h2 class="streets__title">Исследуйте Токио по районам</h2>
+                        <h2 class="streets__title reveal-letters" aria-label="Исследуйте Токио по районам">
+                            <span aria-hidden="true">И</span><span aria-hidden="true">с</span><span aria-hidden="true">с</span><span aria-hidden="true">л</span><span aria-hidden="true">е</span><span aria-hidden="true">д</span><span aria-hidden="true">у</span><span aria-hidden="true">й</span><span aria-hidden="true">т</span><span aria-hidden="true">е</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">Т</span><span aria-hidden="true">о</span><span aria-hidden="true">к</span><span aria-hidden="true">и</span><span aria-hidden="true">о</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">п</span><span aria-hidden="true">о</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">р</span><span aria-hidden="true">а</span><span aria-hidden="true">й</span><span aria-hidden="true">о</span><span aria-hidden="true">н</span><span aria-hidden="true">а</span><span aria-hidden="true">м</span>
+                        </h2>
                         <p class="streets__text">Каждый район Токио уникален. Найдите свой.</p>
                     </div>
 
                     <div class="streets__grid">
-                        <button class="streets__card" type="button" aria-label="Открыть район Синдзюку" data-streets-modal-open data-title="Синдзюку" data-name="Shinjuku" data-image="/img/streets/Shinjuku/Cидзюку.jpg" data-gallery="/img/streets/Shinjuku/Cидзюку.jpg,/img/streets/Shinjuku/1.jpg,/img/streets/Shinjuku/2.jpg,/img/streets/Shinjuku/3.jpg,/img/streets/Shinjuku/4.jpg" data-description="Синдзюку - район небоскребов, неоновых улиц и насыщенной ночной жизни. Здесь легко перейти от шумных ресторанных кварталов к спокойным паркам и смотровым площадкам.">
-                            <img class="streets__card-img" src="/img/streets/Shinjuku/Cидзюку.jpg" alt="Ночная улица района Синдзюку" loading="lazy" decoding="async">
+                        <button class="streets__card reveal-item" type="button" aria-label="Открыть район Шиндзюку" data-streets-modal-open data-title="Шиндзюку" data-name="Shinjuku" data-image="/img/streets/Shinjuku/Cидзюку.jpg" data-gallery="/img/streets/Shinjuku/Cидзюку.jpg,/img/streets/Shinjuku/1.jpg,/img/streets/Shinjuku/2.jpg,/img/streets/Shinjuku/3.jpg,/img/streets/Shinjuku/4.jpg" data-description="Шиндзюку - район небоскребов, неоновых улиц и насыщенной ночной жизни. Здесь легко перейти от шумных ресторанных кварталов к спокойным паркам и смотровым площадкам.">
+                            <img class="streets__card-img" src="/img/streets/Shinjuku/Cидзюку.jpg" alt="Ночная улица района Шиндзюку" loading="lazy" decoding="async">
                             <span class="streets__card-content">
-                                <span class="streets__card-title">Синдзюку</span>
+                                <span class="streets__card-title">Шиндзюку</span>
                                 <span class="streets__card-name">Shinjuku</span>
                                 <span class="streets__card-text">Развлечения и ночная жизнь</span>
                             </span>
                         </button>
 
-                        <button class="streets__card" type="button" aria-label="Открыть район Сибуя" data-streets-modal-open data-title="Сибуя" data-name="Shibuya" data-image="/img/streets/Shinjuku/Cидзюку.jpg" data-gallery="/img/streets/Shinjuku/Cидзюку.jpg,/img/streets/Shinjuku/1.jpg,/img/streets/Shinjuku/2.jpg,/img/streets/Shinjuku/3.jpg,/img/streets/Shinjuku/4.jpg" data-description="Сибуя - центр молодежной культуры, моды и городского движения. Район подходит для прогулок, шопинга, музыки и знакомства с современной энергией Токио.">
-                            <img class="streets__card-img" src="/img/streets/Shinjuku/Cидзюку.jpg" alt="Ночная улица района Сибуя" loading="lazy" decoding="async">
+                        <button class="streets__card reveal-item" type="button" aria-label="Открыть район Шибуя" data-streets-modal-open data-title="Шибуя" data-name="Shibuya" data-image="/img/streets/Shibuya/denys-nevozhai-6ULy3pxuxL8-unsplash.jpg" data-gallery="/img/streets/Shibuya/denys-nevozhai-6ULy3pxuxL8-unsplash.jpg,/img/streets/Shibuya/jezael-melgoza-CudNrzbsyZw-unsplash.jpg,/img/streets/Shibuya/jezael-melgoza-fydgZecUkk0-unsplash.jpg,/img/streets/Shibuya/rafael-hoyos-weht-ck84niU-EHU-unsplash.jpg,/img/streets/Shibuya/teodor-kuduschiev-fGfG3QFxiJ0-unsplash.jpg" data-description="Шибуя - центр молодежной культуры, моды и городского движения. Район подходит для прогулок, шопинга, музыки и знакомства с современной энергией Токио.">
+                            <img class="streets__card-img" src="/img/streets/Shibuya/denys-nevozhai-6ULy3pxuxL8-unsplash.jpg" alt="Ночная улица района Шибуя" loading="lazy" decoding="async">
                             <span class="streets__card-content">
-                                <span class="streets__card-title">Сибуя</span>
+                                <span class="streets__card-title">Шибуя</span>
                                 <span class="streets__card-name">Shibuya</span>
                                 <span class="streets__card-text">Мода, шопинг и молодежная культура</span>
                             </span>
                         </button>
 
-                        <button class="streets__card" type="button" aria-label="Открыть район Асакуса" data-streets-modal-open data-title="Асакуса" data-name="Asakusa" data-image="img/streets/Shinjuku/1.jpg" data-gallery="img/streets/Shinjuku/1.jpg,img/streets/Shinjuku/2.jpg,img/streets/Shinjuku/3.jpg,img/streets/Shinjuku/4.jpg,/img/streets/Shinjuku/Cидзюку.jpg" data-description="Асакуса сохраняет атмосферу старого Токио: храмовые улицы, традиционные лавки, уличная еда и спокойный ритм исторических кварталов.">
-                            <img class="streets__card-img" src="img/streets/Shinjuku/1.jpg" alt="Улица района Асакуса" loading="lazy" decoding="async">
+                        <button class="streets__card reveal-item" type="button" aria-label="Открыть район Асакуса" data-streets-modal-open data-title="Асакуса" data-name="Asakusa" data-image="/img/streets/Asakusa/asakusa.jpg" data-gallery="/img/streets/Asakusa/asakusa.jpg,/img/streets/Asakusa/1.jpg,/img/streets/Asakusa/2.jpg,/img/streets/Asakusa/3.jpg,/img/streets/Asakusa/4.jpg" data-description="Асакуса сохраняет атмосферу старого Токио: храмовые улицы, традиционные лавки, уличная еда и спокойный ритм исторических кварталов.">
+                            <img class="streets__card-img" src="/img/streets/Asakusa/asakusa.jpg" alt="Улица района Асакуса" loading="lazy" decoding="async">
                             <span class="streets__card-content">
                                 <span class="streets__card-title">Асакуса</span>
                                 <span class="streets__card-name">Asakusa</span>
@@ -111,8 +125,8 @@
                             </span>
                         </button>
 
-                        <button class="streets__card" type="button" aria-label="Открыть район Гиндза" data-streets-modal-open data-title="Гиндза" data-name="Ginza" data-image="img/streets/Shinjuku/1.jpg" data-gallery="img/streets/Shinjuku/1.jpg,img/streets/Shinjuku/2.jpg,img/streets/Shinjuku/3.jpg,img/streets/Shinjuku/4.jpg,/img/streets/Shinjuku/Cидзюку.jpg" data-description="Гиндза - элегантный район бутиков, ресторанов, галерей и вечерней подсветки. Здесь Токио раскрывается как город вкуса, дизайна и премиального сервиса.">
-                            <img class="streets__card-img" src="img/streets/Shinjuku/1.jpg" alt="Ночная улица района Гиндза" loading="lazy" decoding="async">
+                        <button class="streets__card reveal-item" type="button" aria-label="Открыть район Гиндза" data-streets-modal-open data-title="Гиндза" data-name="Ginza" data-image="/img/streets/Ginza/Ginza.jpg" data-gallery="/img/streets/Ginza/Ginza.jpg,/img/streets/Ginza/1.jpg,/img/streets/Ginza/2.jpg,/img/streets/Ginza/3.jpg,/img/streets/Ginza/4.jpg" data-description="Гиндза - элегантный район бутиков, ресторанов, галерей и вечерней подсветки. Здесь Токио раскрывается как город вкуса, дизайна и премиального сервиса.">
+                            <img class="streets__card-img" src="/img/streets/Ginza/Ginza.jpg" alt="Ночная улица района Гиндза" loading="lazy" decoding="async">
                             <span class="streets__card-content">
                                 <span class="streets__card-title">Гиндза</span>
                                 <span class="streets__card-name">Ginza</span>
@@ -120,8 +134,8 @@
                             </span>
                         </button>
 
-                        <button class="streets__card" type="button" aria-label="Открыть район Акихабара" data-streets-modal-open data-title="Акихабара" data-name="Akihabara" data-image="img/streets/Shinjuku/1.jpg" data-gallery="img/streets/Shinjuku/1.jpg,img/streets/Shinjuku/2.jpg,img/streets/Shinjuku/3.jpg,img/streets/Shinjuku/4.jpg,/img/streets/Shinjuku/Cидзюку.jpg" data-description="Акихабара - район электроники, игр, аниме и тематических магазинов. Это одно из лучших мест, чтобы увидеть технологичную и поп-культурную сторону города.">
-                            <img class="streets__card-img" src="img/streets/Shinjuku/1.jpg" alt="Ночная улица района Акихабара" loading="lazy" decoding="async">
+                        <button class="streets__card reveal-item" type="button" aria-label="Открыть район Акихабара" data-streets-modal-open data-title="Акихабара" data-name="Akihabara" data-image="/img/streets/Akihabara/Akihabara.jpg" data-gallery="/img/streets/Akihabara/Akihabara.jpg,/img/streets/Akihabara/1.jpg,/img/streets/Akihabara/2.jpg,/img/streets/Akihabara/3.jpg,/img/streets/Akihabara/4.jpg" data-description="Акихабара - район электроники, игр, аниме и тематических магазинов. Это одно из лучших мест, чтобы увидеть технологичную и поп-культурную сторону города.">
+                            <img class="streets__card-img" src="/img/streets/Akihabara/Akihabara.jpg" alt="Ночная улица района Акихабара" loading="lazy" decoding="async">
                             <span class="streets__card-content">
                                 <span class="streets__card-title">Акихабара</span>
                                 <span class="streets__card-name">Akihabara</span>
@@ -130,7 +144,7 @@
                         </button>
                     </div>
 
-                    <a class="streets__button" href="#all-districts">
+                    <a class="streets__button reveal-item" href="#all-districts">
                         <span class="streets__button-text">Смотреть все районы</span>
                         <span class="streets__button-icon" aria-hidden="true"></span>
                     </a>
@@ -138,16 +152,24 @@
 
             </section>
 
-            <section class="infrastructure" id="infrastructure">
+            <section class="infrastructure reveal-section" id="infrastructure" data-reveal-section>
                 <div class="container infrastructure__container">
-                    <div class="infrastructure__head">
+                    <div class="infrastructure__head reveal-item">
                         <span class="infrastructure__eyebrow">Инфраструктура</span>
-                        <h2 class="infrastructure__title">Всё для комфортной жизни</h2>
+                        <h2 class="infrastructure__title reveal-letters" aria-label="Всё для комфортной жизни">
+                            <span aria-hidden="true">В</span><span aria-hidden="true">с</span><span aria-hidden="true">ё</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">д</span><span aria-hidden="true">л</span><span aria-hidden="true">я</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">к</span><span aria-hidden="true">о</span><span aria-hidden="true">м</span><span aria-hidden="true">ф</span><span aria-hidden="true">о</span><span aria-hidden="true">р</span><span aria-hidden="true">т</span><span aria-hidden="true">н</span><span aria-hidden="true">о</span><span aria-hidden="true">й</span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span aria-hidden="true">ж</span><span aria-hidden="true">и</span><span aria-hidden="true">з</span><span aria-hidden="true">н</span><span aria-hidden="true">и</span>
+                        </h2>
                         <p class="infrastructure__text">Токио - один из самых удобных городов мира.</p>
                     </div>
 
                     <ul class="infrastructure__list">
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M7 3h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/>
@@ -160,7 +182,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M12 3 4 7v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V7l-8-4Z"/>
@@ -173,7 +195,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="m3 8 9-5 9 5-9 5-9-5Z"/>
@@ -186,7 +208,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M7 4h10l2 4v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8l2-4Z"/>
@@ -199,7 +221,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M12 3 5 6v5c0 4.5 2.8 7.6 7 10 4.2-2.4 7-5.5 7-10V6l-7-3Z"/>
@@ -212,7 +234,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M6 8h12l-1 12H7L6 8Z"/>
@@ -225,7 +247,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M4 9h16v10H4V9Z"/>
@@ -238,7 +260,7 @@
                             </span>
                         </li>
 
-                        <li class="infrastructure__item">
+                        <li class="infrastructure__item reveal-item">
                             <span class="infrastructure__icon" aria-hidden="true">
                                 <svg class="infrastructure__icon-svg" viewBox="0 0 24 24">
                                     <path d="M12 3v18M7 9a5 5 0 0 1 10 0c0 2-1 4-5 6-4-2-5-4-5-6Z"/>
@@ -254,12 +276,20 @@
                 </div>
             </section>
 
-            <section class="life" id="life">
+            <section class="life reveal-section" id="life" data-reveal-section>
                 <div class="container life__container">
-                    <div class="life__feature">
+                    <div class="life__feature reveal-item">
                         <div class="life__feature-content">
                             <span class="life__eyebrow">Жизнь в Токио</span>
-                            <h2 class="life__title">Гармония технологий и традиций</h2>
+                            <h2 class="life__title reveal-letters" aria-label="Гармония технологий и традиций">
+                                <span class="reveal-letters__word"><span aria-hidden="true">Г</span><span aria-hidden="true">а</span><span aria-hidden="true">р</span><span aria-hidden="true">м</span><span aria-hidden="true">о</span><span aria-hidden="true">н</span><span aria-hidden="true">и</span><span aria-hidden="true">я</span></span>
+                                <span aria-hidden="true">&nbsp;</span>
+                                <span class="reveal-letters__word"><span aria-hidden="true">т</span><span aria-hidden="true">е</span><span aria-hidden="true">х</span><span aria-hidden="true">н</span><span aria-hidden="true">о</span><span aria-hidden="true">л</span><span aria-hidden="true">о</span><span aria-hidden="true">г</span><span aria-hidden="true">и</span><span aria-hidden="true">й</span></span>
+                                <span aria-hidden="true">&nbsp;</span>
+                                <span class="reveal-letters__word"><span aria-hidden="true">и</span></span>
+                                <span aria-hidden="true">&nbsp;</span>
+                                <span class="reveal-letters__word"><span aria-hidden="true">т</span><span aria-hidden="true">р</span><span aria-hidden="true">а</span><span aria-hidden="true">д</span><span aria-hidden="true">и</span><span aria-hidden="true">ц</span><span aria-hidden="true">и</span><span aria-hidden="true">й</span></span>
+                            </h2>
                             <p class="life__text">
                                 Токио - это город, где вы можете утром молиться в древнем храме, а вечером наслаждаться неоновыми огнями современного мегаполиса.
                             </p>
@@ -267,8 +297,14 @@
                         </div>
                     </div>
 
-                    <div class="life__cta">
-                        <h3 class="life__cta-title">Готовы открыть Токио?</h3>
+                    <div class="life__cta reveal-item">
+                        <h3 class="life__cta-title reveal-letters" aria-label="Готовы открыть Токио?">
+                            <span class="reveal-letters__word"><span aria-hidden="true">Г</span><span aria-hidden="true">о</span><span aria-hidden="true">т</span><span aria-hidden="true">о</span><span aria-hidden="true">в</span><span aria-hidden="true">ы</span></span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span class="reveal-letters__word"><span aria-hidden="true">о</span><span aria-hidden="true">т</span><span aria-hidden="true">к</span><span aria-hidden="true">р</span><span aria-hidden="true">ы</span><span aria-hidden="true">т</span><span aria-hidden="true">ь</span></span>
+                            <span aria-hidden="true">&nbsp;</span>
+                            <span class="reveal-letters__word"><span aria-hidden="true">Т</span><span aria-hidden="true">о</span><span aria-hidden="true">к</span><span aria-hidden="true">и</span><span aria-hidden="true">о</span><span aria-hidden="true">?</span></span>
+                        </h3>
                         <p class="life__cta-text">Планируйте поездку и откройте город, который вдохновляет миллионы людей.</p>
                         <a class="life__cta-button" href="#trip">План поездки</a>
                     </div>
@@ -276,7 +312,7 @@
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="footer reveal-section" data-reveal-section>
             <div class="container footer__container">
                 <div class="footer__brand">
                     <a class="footer__logo" href="#" aria-label="Tokyo">

@@ -1,4 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const revealSections = document.querySelectorAll("[data-reveal-section]");
+
+  revealSections.forEach((section) => {
+    section.querySelectorAll(".reveal-item").forEach((item, index) => {
+      item.style.setProperty("--reveal-index", index);
+    });
+
+    section.querySelectorAll(".reveal-letters").forEach((title) => {
+      title.querySelectorAll("span:not(.reveal-letters__word)").forEach((letter, index) => {
+        letter.style.setProperty("--letter-index", index);
+      });
+    });
+
+    section.querySelectorAll(".streets__card").forEach((card, index) => {
+      card.style.setProperty("--card-index", index);
+    });
+  });
+
+  const revealSection = (section) => {
+    section.classList.add("is-visible");
+  };
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        revealSection(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: "0px 0px -16% 0px",
+      threshold: 0.12,
+    });
+
+    revealSections.forEach((section) => {
+      revealObserver.observe(section);
+    });
+  } else {
+    revealSections.forEach(revealSection);
+  }
+
+  window.requestAnimationFrame(() => {
+    const welcome = document.querySelector(".reveal-section--welcome");
+
+    if (welcome) {
+      revealSection(welcome);
+    }
+  });
+
   const modal = document.querySelector("[data-streets-modal]");
 
   if (!modal) {

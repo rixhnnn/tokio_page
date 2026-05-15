@@ -12,6 +12,17 @@
     url("../img/section_welcome/1.jpg") center / cover no-repeat;
   overflow: hidden;
 
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: inherit;
+    transform: scale(1.08);
+    opacity: 0;
+    animation: welcome-bg 1.4s ease forwards;
+    pointer-events: none;
+  }
+
   &__container {
     position: relative;
     z-index: 1;
@@ -36,6 +47,9 @@
     font-size: clamp(26px, 3.2vw, 42px);
     font-weight: 400;
     line-height: 1;
+    opacity: 0;
+    transform: translateX(-28px);
+    animation: welcome-item 0.72s ease forwards 0.16s;
   }
 
   &__eyebrow-symbol {
@@ -48,13 +62,41 @@
   }
 
   &__title {
+    display: flex;
     margin-bottom: 18px;
-    font-family: $font-main;
-    font-size: clamp(76px, 12vw, 156px);
-    font-weight: 800;
-    line-height: 0.82;
+    font-family: $font-marker;
+    font-size: clamp(68px, 10vw, 136px);
+    font-weight: 400;
+    line-height: 0.9;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+
+  &__title-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-34px) rotateY(-24deg);
+    animation: welcome-letter 0.72s cubic-bezier(0.18, 1, 0.32, 1) forwards;
+
+    &:nth-child(1) {
+      animation-delay: 0.32s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.43s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.54s;
+    }
+
+    &:nth-child(4) {
+      animation-delay: 0.65s;
+    }
+
+    &:nth-child(5) {
+      animation-delay: 0.76s;
+    }
   }
 
   &__subtitle {
@@ -62,6 +104,9 @@
     font-size: clamp(18px, 2vw, 27px);
     font-weight: 800;
     line-height: 1.25;
+    opacity: 0;
+    transform: translateX(-28px);
+    animation: welcome-item 0.72s ease forwards 0.92s;
   }
 
   &__text {
@@ -71,6 +116,9 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 1.75;
+    opacity: 0;
+    transform: translateX(-28px);
+    animation: welcome-item 0.72s ease forwards 1.06s;
   }
 
   &__button {
@@ -90,6 +138,8 @@
       background-color $transition,
       transform $transition,
       box-shadow $transition;
+    opacity: 0;
+    animation: welcome-item 0.72s ease forwards 1.18s;
 
     &:hover {
       background: #d90812;
@@ -109,6 +159,9 @@
     gap: clamp(26px, 5vw, 78px);
     max-width: 760px;
     margin-top: auto;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: welcome-item 0.72s ease forwards 1.32s;
   }
 
   &__stat {
@@ -255,5 +308,41 @@
     &__button {
       width: 100%;
     }
+  }
+}
+
+@keyframes welcome-bg {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes welcome-letter {
+  0% {
+    opacity: 0;
+    transform: translateX(-34px) rotateY(-24deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+@keyframes welcome-item {
+  0% {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

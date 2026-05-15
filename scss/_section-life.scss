@@ -50,6 +50,7 @@
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: 0;
+    max-width: 620px;
   }
 
   &__text {
@@ -126,6 +127,8 @@
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: 0;
+    justify-content: center;
+    text-align: center;
   }
 
   &__cta-text {
