@@ -105,7 +105,6 @@ body {
 }
 
 .infrastructure,
-.life,
 .footer {
   content-visibility: auto;
   contain-intrinsic-size: 800px;
@@ -1273,9 +1272,13 @@ body {
 }
 
 .life {
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
   padding: 48px 0 84px;
   background: #070a0f;
   color: #ffffff;
+  box-shadow: 0 -1px 0 #070a0f;
 }
 .life__container {
   display: flex;
@@ -1284,7 +1287,7 @@ body {
 }
 .life__feature {
   min-height: 460px;
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(45, 55, 72, 0.72);
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(7, 10, 15, 0.9) 0%, rgba(7, 10, 15, 0.74) 34%, rgba(7, 10, 15, 0.24) 72%), linear-gradient(180deg, rgba(7, 10, 15, 0.08) 0%, rgba(7, 10, 15, 0.42) 100%), url("../img/section_life/sorasak-_UIN-pFfJ7c-unsplash.jpg") center/cover no-repeat;
   box-shadow: 0 24px 64px rgba(17, 17, 17, 0.32);
@@ -1352,7 +1355,7 @@ body {
   position: relative;
   min-height: 220px;
   padding: 34px 40px 40px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(45, 55, 72, 0.68);
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(7, 10, 15, 0.5) 0%, rgba(7, 10, 15, 0.7) 48%, rgba(7, 10, 15, 0.72) 100%), url("../img/section_life/crystal-kay-7viWpO0fNss-unsplash.jpg") center/cover no-repeat;
   text-align: center;
