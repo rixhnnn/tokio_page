@@ -140,6 +140,8 @@
   }
 
   @media (max-width: $breakpoint-sm) {
+    position: sticky;
+    top: 0;
     overflow: hidden;
 
     &__container {
@@ -196,14 +198,5 @@
     &__button:hover {
       transform: none;
     }
-  }
-}
-
-.is-telegram-webview {
-  .header {
-    position: absolute;
-    top: var(--telegram-header-top, 0px);
-    transform: none;
-    will-change: top;
   }
 }

@@ -80,7 +80,7 @@ body {
 }
 @media (max-width: 767px) {
   .page {
-    padding-top: calc(58px + env(safe-area-inset-top, 0px));
+    padding-top: 0;
   }
 }
 
@@ -331,6 +331,8 @@ body {
 }
 @media (max-width: 767px) {
   .header {
+    position: sticky;
+    top: 0;
     overflow: hidden;
   }
   .header__container {
@@ -379,13 +381,6 @@ body {
   .header__button:hover {
     transform: none;
   }
-}
-
-.is-telegram-webview .header {
-  position: absolute;
-  top: var(--telegram-header-top, 0px);
-  transform: none;
-  will-change: top;
 }
 
 .welcome {
