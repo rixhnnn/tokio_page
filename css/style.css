@@ -13,12 +13,14 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
+  background: #090d13;
 }
 
 body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
+  background: #090d13;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-x: none;
@@ -68,7 +70,7 @@ table {
 body {
   font-family: "Playfair", "Inter", "Segoe UI", serif;
   color: #1f1b18;
-  background: radial-gradient(circle at top left, rgba(185, 28, 28, 0.12), transparent 28rem), linear-gradient(135deg, #f7f1e8 0%, #fffaf3 100%);
+  background: #090d13;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -81,11 +83,12 @@ body {
 @media (max-width: 767px) {
   .page {
     position: fixed;
-    top: calc(58px + env(safe-area-inset-top, 0px));
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    padding-top: 0;
+    padding-top: calc(58px + env(safe-area-inset-top, 0px));
+    background: #090d13;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -361,6 +364,7 @@ body {
 }
 @media (max-width: 767px) {
   .header {
+    pointer-events: none;
     overflow: hidden;
   }
   .header__container {
@@ -371,6 +375,7 @@ body {
     justify-content: space-between;
     gap: 14px;
     box-sizing: border-box;
+    pointer-events: auto;
   }
   .header__nav {
     display: none;

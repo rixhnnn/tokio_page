@@ -138,6 +138,7 @@
   }
 
   @media (max-width: $breakpoint-sm) {
+    pointer-events: none;
     overflow: hidden;
 
     &__container {
@@ -148,6 +149,7 @@
       justify-content: space-between;
       gap: 14px;
       box-sizing: border-box;
+      pointer-events: auto;
     }
 
     &__nav {

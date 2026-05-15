@@ -13,12 +13,14 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   overflow-x: hidden;
+  background: #090d13;
 }
 
 body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
+  background: #090d13;
   text-rendering: optimizeSpeed;
   -webkit-font-smoothing: antialiased;
   overscroll-behavior-x: none;
