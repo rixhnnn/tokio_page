@@ -11,6 +11,8 @@ body {
 }
 
 .page {
+  position: relative;
+  z-index: 0;
   overflow: hidden;
 
   @media (max-width: $breakpoint-sm) {
