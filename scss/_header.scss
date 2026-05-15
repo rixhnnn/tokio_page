@@ -20,8 +20,6 @@
     align-items: center;
     min-height: 58px;
     gap: 36px;
-    transform: translateZ(0);
-    backface-visibility: hidden;
   }
 
   &__logo {
@@ -140,8 +138,6 @@
   }
 
   @media (max-width: $breakpoint-sm) {
-    position: sticky;
-    top: 0;
     overflow: hidden;
 
     &__container {

@@ -298,6 +298,15 @@
       gap: 18px;
       max-width: 260px;
     }
+
+    &::before,
+    &__eyebrow,
+    &__title-letter,
+    &__subtitle,
+    &__text,
+    &__stats {
+      transform: none;
+    }
   }
 
   @media (max-width: $breakpoint-xs) {
